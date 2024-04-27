@@ -19,10 +19,10 @@ function selection_sort(arr, n) {
   return arr;
 }
 
-rl.question("Enter the length of the array: ", (length) => {
+rl.question('',(length) => {
   const n = parseInt(length);
 
-  rl.question(`Enter ${n} numbers separated by space: `, (input) => {
+  rl.question('',(input) => {
     const arr = input.split(" ").map(Number);
 
     const sortedNumbers = selection_sort(arr, n);
