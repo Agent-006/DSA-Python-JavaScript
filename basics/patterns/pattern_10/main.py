@@ -1,6 +1,5 @@
 def print_pattern(n):
     for i in range(n * 2):
-        stars = i
         if i > n:
             for k in range((2 * n) - i + 1):
                 print("* ", end="")
