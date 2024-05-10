@@ -1,0 +1,1 @@
+Do the same using back tracking method `func(i+1, n)` is not allowed

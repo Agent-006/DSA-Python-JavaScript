@@ -34,4 +34,5 @@ rl.question("Enter the number: ", (number) => {
   const n = parseInt(number);
 
   console.log(isArmstrong(n));
+  process.exit(0);
 });

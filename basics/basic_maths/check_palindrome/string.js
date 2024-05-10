@@ -24,4 +24,5 @@ rl.question("Enter the number: ", (number) => {
   const n = parseInt(number);
 
   console.log(isPalindrome(n));
+  process.exit(0);
 });

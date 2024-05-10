@@ -44,4 +44,5 @@ rl.question("Enter the number: ", (number) => {
 
   //   printDivisors1(n);
   printDivisors2(n);
+  process.exit(0);
 });

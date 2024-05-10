@@ -20,4 +20,5 @@ rl.question("Enter the number: ", (number) => {
 
   const revNum = reverseNumber(n);
   console.log(`The reverse of ${n} is ${revNum}`);
+  process.exit(0);
 });

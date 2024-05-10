@@ -26,4 +26,5 @@ rl.question("Enter the number: ", (number) => {
   const n = parseInt(number);
 
   console.log(isPrime(n));
+  process.exit(0);
 });

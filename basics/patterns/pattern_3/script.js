@@ -18,4 +18,5 @@ rl.question("Enter the limit: ", (limit) => {
   const n = parseInt(limit);
 
   printPattern(n);
+  process.exit(0);
 });

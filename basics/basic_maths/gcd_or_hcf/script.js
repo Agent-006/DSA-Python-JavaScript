@@ -25,5 +25,6 @@ rl.question("Enter the first number: ", (num1) => {
     const b = parseInt(num2);
 
     console.log(gcd(a, b));
+    process.exit(0);
   });
 });

@@ -19,4 +19,5 @@ rl.question("Enter the number: ", (number) => {
 
   const digits = countDigit(n);
   console.log(`The number of digits in ${n} is: ${digits}`);
+  process.exit(0);
 });

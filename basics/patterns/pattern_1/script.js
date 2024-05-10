@@ -21,5 +21,6 @@ rl.question("Enter the no. of rows: ", (r) => {
     const cols = parseInt(c);
 
     printPatterns(rows, cols);
+    process.exit(0);
   });
 });

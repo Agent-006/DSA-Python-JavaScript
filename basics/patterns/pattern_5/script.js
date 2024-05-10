@@ -18,4 +18,5 @@ rl.question("Enter the size: ", (size) => {
   const n = parseInt(size);
 
   printPattern(n);
+  process.exit(0);
 });
