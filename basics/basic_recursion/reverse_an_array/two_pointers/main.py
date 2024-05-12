@@ -13,8 +13,9 @@ def reverse_arr(l, r, arr):
 def main():
     arr = list(map(int, input("Enter the array elements: ").split()))
     n = len(arr)
+    print(*arr)
     reverse_arr(0, n - 1, arr)
-    print(arr)
+    print(*arr)
 
 
 main()

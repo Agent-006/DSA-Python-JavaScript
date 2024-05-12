@@ -5,6 +5,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+// using single pointer method
 function reverseArray(i, arr) {
   n = arr.length;
   if (i >= n / 2) return;
@@ -19,9 +20,9 @@ function reverseArray(i, arr) {
 
 rl.question("Enter the array elements: ", (input) => {
   const arr = input.split(" ").map(Number);
-  console.log(arr);
+  console.log(...arr);
   reverseArray(0, arr);
-  console.log(arr);
+  console.log(...arr);
 
-  rl.close()
+  rl.close();
 });
