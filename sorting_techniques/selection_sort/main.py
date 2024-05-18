@@ -15,4 +15,3 @@ arr = list(map(int, input().split()))
 
 sorted_arr = selection_sort(arr, n)
 print(*arr)
-
