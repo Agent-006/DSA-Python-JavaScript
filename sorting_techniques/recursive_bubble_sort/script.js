@@ -9,13 +9,18 @@ function bubbleSort(arr, n) {
   // base case
   if (n == 1) return;
 
+  let swap = 0;
   for (let i = 0; i <= n - 2; i++) {
     if (arr[i] > arr[i + 1]) {
       let temp = arr[i + 1];
       arr[i + 1] = arr[i];
       arr[i] = temp;
+      swap++;
     }
   }
+
+  if (swap === 0) return;
+
   bubbleSort(arr, n - 1);
 }
 
