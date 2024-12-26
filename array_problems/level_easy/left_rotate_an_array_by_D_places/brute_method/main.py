@@ -1,7 +1,7 @@
 def leftRotate(arr: list, n: int, d: int):
     d = d % n
 
-    temp = [d]
+    temp = []
 
     # extract 'd' elements and put them to temp
     for i in range(d):
