@@ -1,4 +1,4 @@
-def longest_subarray(arr, n, num):
+def longest_subarray(arr: list, n: int, num: int):
     max_len = 0  # Initialize the maximum length of subarray with sum 'num' to 0
     for i in range(n):
         for j in range(i, n):
@@ -12,9 +12,9 @@ def longest_subarray(arr, n, num):
     return max_len
 
 
-arr = [1, 2, 3, 4, 5, 6, 7, 8]
+arr = [1, 2, 3, 1, 1, 1, 1, 4, 2, 3]
 n = len(arr)
-num = 15
+num = 3
 print(
     longest_subarray(arr, n, num)
-)  # Print the maximum length of subarray with sum 'num' (expected output: 5)
+)  # Print the maximum length of subarray with sum 'num' (expected output: 3)
