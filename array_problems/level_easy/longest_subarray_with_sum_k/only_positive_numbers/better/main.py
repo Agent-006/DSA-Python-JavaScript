@@ -24,4 +24,4 @@ def longest_subarray(arr, k):
 
 arr = [1, 2, 3, 1, 1, 1, 1, 4, 2, 3]
 k = 3
-print(longest_subarray(arr, k))  # 5
+print(longest_subarray(arr, k))  # 3

@@ -26,7 +26,7 @@ def longestSubarrayWithSumK(arr, k):
 
         # Update the sum by adding the next element to the subarray
         if right < n:
-            sum += arr[right]
+            sum += arr[right] 
 
     # Return the maximum length of subarray with sum k
     return max_len
