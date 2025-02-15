@@ -16,7 +16,7 @@ function twoSum(arr, target) {
         // Store the index of the current element in the hashMap
         hashMap[arr[i]] = i;
     }
-}
+}  
 
 const arr = [2, 6, 5, 8, 11];
 let target = 14;
