@@ -1,34 +1,55 @@
-def sort_0s_1s_2s(arr: list, n: int):
-    # Initialize counters for 0s, 1s, and 2s
-    count_0 = 0
-    count_1 = 0
-    count_2 = 0
-    
-    # Count the number of 0s, 1s, and 2s in the array
-    for i in range(n):
-        if arr[i] == 0:
-            count_0 += 1
-        elif arr[i] == 1:
-            count_1 += 1
-        else:
-            count_2 += 1
-    
-    # Place the 0s in the beginning of the array
-    for i in range(count_0):
-        arr[i] = 0
-    
-    # Place the 1s after the 0s
-    for i in range(count_0, count_0 + count_1):
-        arr[i] = 1
-    
-    # Place the 2s after the 1s
-    for i in range(count_0 + count_1, n):
-        arr[i] = 2
-    
-    return arr
+# sort using merge sort
+# Time Complexity: O(n log n)
+# Space Complexity: O(n)
 
-if __name__ == '__main__':
-    arr = [0, 1, 2, 0, 1, 2, 1, 2, 0, 0, 0, 1]
+
+# merge algo
+def merge(arr: list, low: int, mid: int, high: int):
+    # [low...mid]
+    # [mid+1...high]
+    left: int = low
+    right: int = mid + 1
+    temp: list = []
+
+    # checking if the left pointer exceeds the mid and right pointer exceeds high
+    while left <= mid and right <= high:
+        # checking which value is smaller
+        if arr[left] <= arr[right]:
+            temp.append(arr[left])
+            left += 1
+        else:
+            temp.append(arr[right])
+            right += 1
+
+    # if the right array exceeds the all the elements left in the 'left' array are added to the temp.
+    while left <= mid:
+        temp.append(arr[left])
+        left += 1
+
+    # if the left array exceeds the all the elements right in the 'right' array are added to the temp.
+    while right <= high:
+        temp.append(arr[right])
+        right += 1
+
+    # changing the elements of the original array in a sorted order.
+    for i in range(low, high + 1):
+        # print(f"i={i}, low={low}, high={high}")
+        arr[i] = temp[i - low]
+        # print(f"{arr} {temp}")
+
+
+# merge_sort algorithm
+def merge_sort(arr: list, low: int, high: int):
+    if low >= high:
+        return
+    mid: int = (low + high) // 2
+    merge_sort(arr, low, mid)
+    merge_sort(arr, mid + 1, high)
+    merge(arr, low, mid, high)
+
+
+if __name__ == "__main__":
+    arr = [0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1]
     n = len(arr)
-    # Print the sorted array
-    print(sort_0s_1s_2s(arr, n))  # Output: [0, 0, 0, 0, 1, 1, 1, 2, 2, 2]
+    merge_sort(arr, 0, n - 1)
+    print(arr)  # Output: [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2]

@@ -1,40 +1,56 @@
-function sort0s1s2s(arr, n) {
-    // Initialize counters for 0s, 1s, and 2s
-    let count0 = 0;
-    let count1 = 0;
-    let count2 = 0;
+// sort using merge sort
+// Time Complexity: O(n log n)
+// Space Complexity: O(n)
 
-    // Count the number of 0s, 1s, and 2s in the array
-    for (let i = 0; i < n; i++) {
-        if (arr[i] === 0) {
-            count0++;
-        } else if (arr[i] === 1) {
-            count1++;
-        } else if (arr[i] === 2) {
-            count2++;
+// merge algo
+function merge(arr, low, mid, high) {
+    // [low...mid]
+    // [mid+1...high]
+    let left = low;
+    let right = mid + 1;
+    let temp = [];
+
+    // checking if the left pointer exceeds the mid and right pointer exceeds high
+    while (left <= mid && right <= high) {
+        // checking which value is smaller
+        if (arr[left] <= arr[right]) {
+            temp.push(arr[left]);
+            left++;
+        } else {
+            temp.push(arr[right]);
+            right++;
         }
     }
 
-    // Place the 0s in the beginning of the array
-    for (let i = 0; i < count0; i++) {
-        arr[i] = 0;
+    // if the right array exceeds the all the elements left in the 'left' array are added to the temp.
+    while (left <= mid) {
+        temp.push(arr[left]);
+        left++;
     }
 
-    // Place the 1s after the 0s
-    for (let i = count0; i < count0 + count1; i++) {
-        arr[i] = 1;
+    // if the left array exceeds the all the elements right in the 'right' array are added to the temp.
+    while (right <= high) {
+        temp.push(arr[right]);
+        right++;
     }
 
-    // Place the 2s after the 1s
-    for (let i = count0 + count1; i < n; i++) {
-        arr[i] = 2;
+    // changing the elements of the original array in a sorted order.
+    for (let i = low; i <= high; i++) {
+        arr[i] = temp[i - low];
     }
-
-    // Return the sorted array
-    return arr;
+}
+// merge_sort algorithm
+function mergeSort(arr, low, high) {
+    if (low >= high) return;
+    let mid = parseInt((low + high) / 2);
+    mergeSort(arr, low, mid);
+    mergeSort(arr, mid + 1, high);
+    merge(arr, low, mid, high);
 }
 
-// Example usage
-const arr = [0, 1, 2, 0, 1, 2, 1, 2, 0, 0, 0, 1];
+// Taking the array inputs
+
+const arr = [0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1];
 const n = arr.length;
-console.log(sort0s1s2s(arr, n)); // [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2]
+mergeSort(arr, 0, n - 1);
+console.log(arr);
