@@ -22,10 +22,6 @@ function maximum_subarray_sum(arr, n) {
         if (currentSum < 0) {
             currentSum = 0;
         }
-
-        if (maxSum < 0) {
-            return 0;
-        }
     }
 
     // Return the maximum subarray sum found

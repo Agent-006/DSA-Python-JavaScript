@@ -20,10 +20,6 @@ def maximum_subarray_sum(arr: list, n: int) -> int:
         if current_sum < 0:
             current_sum = 0
 
-        # If all numbers are negative, return 0 as the maximum subarray sum
-        if max_sum < 0:
-            return 0
-
     # Return the maximum subarray sum found
     return max_sum
 
